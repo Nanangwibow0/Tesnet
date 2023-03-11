@@ -17,15 +17,17 @@ _____________
 
 ### mulai
 
-```
-wget -O QB.sh https://raw.githubusercontent.com/nanang472/Tesnet/main/Q-Blockchain/QB.sh && chmod +x QB.sh && ./QB.sh
+```bash
+wget https://raw.githubusercontent.com/nanang472/Tesnet/main/Q-Blockchain/qblock.sh
+chmod +x qblock.sh
+./qblock.sh
 ```
 _____________
 
 
 ### Membuat Password Wallet
 
-```
+```bash
 cd
 cd ~/testnet-public-tools/testnet-validator
 nano keystore/pwd.txt
@@ -37,7 +39,7 @@ _____________
 
 ### Create Wallet Baru
 
-```
+```bash
 docker run --entrypoint="" --rm -v $PWD:/data -it qblockchain/q-client:testnet geth account new --datadir=/data --password=/data/keystore/pwd.txt
 ```
 _____________
@@ -64,13 +66,13 @@ BOOTNODE7_ADDR=enode://e974d9354ababd356a6bfecbb03a59d14ab715ffa02d431c6accfc5de
 ```
 CTRL X+Y ENTER
 
-```
+```bash
 nano config.json
 ```
 address=<adrees-lama-mu> tanpa 0x
 password=<pasword-lama_mu>
 
-```
+```bash
 docker compose run testnet-validator-node --datadir /data account update <Address-Lama-mu>
 ```
 _____________
@@ -83,11 +85,10 @@ _____________
 
 
 ### Stake Contract
-```
+```bash
 cd
 cd ~/testnet-public-tools/testnet-validator
 docker run --rm -v $PWD:/data -v $PWD/config.json:/build/config.json qblockchain/js-interface:testnet validators.js
-
 ```
 _____________
 
@@ -100,7 +101,7 @@ Simpan ITN-nama-xx Pada notepad
 
 **Jalankan Node**
 
-```
+```bash
 cd
 cd ~/testnet-public-tools/testnet-validator
 rm -rf docker-compose.yaml
@@ -108,7 +109,7 @@ nano docker-compose.yaml
 ```
 
 Paste konfigurasi dibwah ini : 
-```
+```bash
 version: "3"
 
 services:
@@ -184,12 +185,12 @@ _____________
 _____________
 
 ### Delete Node
-```
+```bash
 cd
 cd ~/testnet-public-tools/testnet-validator
 docker compose down
 ```
-```
+```bash
 cd
 rm -rf testnet-public-tools
 rm -rf qb.sh
