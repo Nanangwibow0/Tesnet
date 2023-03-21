@@ -30,7 +30,7 @@ sudo systemctl restart bonus-blockd && sudo journalctl -u bonus-blockd -f --no-h
 
 # Informasi node
 
-*cek sync node
+* cek sync node
 ```bash
 bonus-blockd status 2>&1 | jq .SyncInfo
 ```
@@ -40,12 +40,12 @@ bonus-blockd status 2>&1 | jq .SyncInfo
 journalctl -fu bonus-blockd -o cat
 ```
 
-*cek node info
+* cek node info
 ```bash
 bonus-blockd status 2>&1 | jq .NodeInfo
 ```
 
-*cek validator info
+* cek validator info
 ```bash
 bonus-blockd status 2>&1 | jq .ValidatorInfo
 ```
@@ -62,7 +62,7 @@ bonus-blockd tendermint show-node-id
 bonus-blockd keys add $WALLET
 ```
 
-*recover wallet
+* recover wallet
 ```bash
 bonus-blockd keys add $WALLET --recover
 ```
@@ -88,10 +88,10 @@ source $HOME/.bash_profile
 
 # Membuat validator
 
-*daftar : [https://app.bonusblock.io](https://app.bonusblock.io?ref=DBXu4w7b)
-*faucet : [https://faucet.bonusblock.io](https://faucet.bonusblock.io/)
+* daftar : [https://app.bonusblock.io](https://app.bonusblock.io?ref=DBXu4w7b)
+* faucet : [https://faucet.bonusblock.io](https://faucet.bonusblock.io/)
 
-*cek balance
+* cek balance
 ```bash
 bonus-blockd query bank balances $BONUS_WALLET_ADDRESS
 ```
@@ -116,7 +116,7 @@ bonus-blockd tx staking create-validator \
   --chain-id $BONUS_CHAIN_ID
 ```
 
-*edit validator
+* edit validator
 ```bash
 bonus-blockd tx staking edit-validator \
   --new-moniker="nama-node" \
@@ -130,7 +130,7 @@ bonus-blockd tx staking edit-validator \
   --from=$WALLET
 ```
 
-*unjail validator
+* unjail validator
 ```bash
 bonus-blockd tx slashing unjail \
   --broadcast-mode=block \
@@ -141,24 +141,24 @@ bonus-blockd tx slashing unjail \
   --gas=auto
 ```
 
-*Voting
+* Voting
 ```bash
 bonus-blockd tx gov vote 1 yes --from $WALLET --chain-id=$BONUS_CHAIN_ID --gas=auto --fees=2500000ubonus
 ```
 
 # Delegasi dan Rewards
 
-*delegasi
+* delegasi
 ```bash
 bonus-blockd tx staking delegate $BONUS_VALOPER_ADDRESS 1000000000000ubonus --from=$WALLET --chain-id=$BONUS_CHAIN_ID --gas=auto --fees=250000ubonus
 ```
 
-*withdraw reward
+* withdraw reward
 ```bash
 bonus-blockd tx distribution withdraw-all-rewards --from=$WALLET --chain-id=$BONUS_CHAIN_ID --gas=auto --fees=2500000ubonus
 ```
 
-*withdraw reward beserta komisi
+* withdraw reward beserta komisi
 ```bash
 bonus-blockd tx distribution withdraw-rewards $BONUS_VALOPER_ADDRESS --from=$WALLET --commission --chain-id=$BONUS_CHAIN_ID --gas=auto --fees=2500000ubonus
 ```
