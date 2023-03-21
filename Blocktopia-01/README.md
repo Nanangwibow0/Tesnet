@@ -2,19 +2,19 @@
 # Blocktopia-01 Tesnet
 
 
-*Instalasi Otomatis
+* Instalasi Otomatis
 ```bash
 wget https://raw.githubusercontent.com/nanang472/Tesnet/main/Blocktopia-01/block.sh
 chmod +x block.sh
 ./block.sh
 ```
 
-*Load variable ke system
+* Load variable ke system
 ```bash
 source $HOME/.bash_profile
 ```
 
-*SNAPSHOT SETIAP 10 JAM !!!
+# SNAPSHOT SETIAP 10 JAM !!!
 ```bash
 sudo apt install lz4 -y
 sudo systemctl stop bonus-blockd
@@ -23,7 +23,7 @@ rm -rf $HOME/.bonusblock/data
 curl -L https://snapshot.bonusblock.alfonova.app/bonusblock/bonusblock-snapshot-20230320.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.bonusblock
 mv $HOME/.bonusblock/priv_validator_state.json.backup $HOME/.bonusblock/data/priv_validator_state.json
 ```
-*restar 
+* restar 
 ```bash
 sudo systemctl restart bonus-blockd && sudo journalctl -u bonus-blockd -f --no-hostname -o cat
 ```
@@ -35,7 +35,7 @@ sudo systemctl restart bonus-blockd && sudo journalctl -u bonus-blockd -f --no-h
 bonus-blockd status 2>&1 | jq .SyncInfo
 ```
 
-*cek log node
+* cek log node
 ```bash
 journalctl -fu bonus-blockd -o cat
 ```
@@ -50,7 +50,7 @@ bonus-blockd status 2>&1 | jq .NodeInfo
 bonus-blockd status 2>&1 | jq .ValidatorInfo
 ```
 
-*cek node id
+* cek node id
 ```bash
 bonus-blockd tendermint show-node-id
 ```
@@ -67,17 +67,17 @@ bonus-blockd keys add $WALLET
 bonus-blockd keys add $WALLET --recover
 ```
 
-*list wallet
+* list wallet
 ```bash
 bonus-blockd keys list
 ```
 
-*hapus wallet
+* hapus wallet
 ```bash
 bonus-blockd keys delete $WALLET
 ```
 
-*Simpan informasi wallet
+* Simpan informasi wallet
 ```
 BONUS_WALLET_ADDRESS=$(bonus-blockd keys show $WALLET -a)
 BONUS_VALOPER_ADDRESS=$(bonus-blockd keys show $WALLET --bech val -a)
@@ -88,15 +88,15 @@ source $HOME/.bash_profile
 
 # Membuat validator
 
-* daftar : [https://app.bonusblock.io](https://app.bonusblock.io?ref=DBXu4w7b)
-* faucet : [https://faucet.bonusblock.io](https://faucet.bonusblock.io/)
+*- daftar : [https://app.bonusblock.io](https://app.bonusblock.io?ref=DBXu4w7b)
+*- faucet : [https://faucet.bonusblock.io](https://faucet.bonusblock.io/)
 
 * cek balance
 ```bash
 bonus-blockd query bank balances $BONUS_WALLET_ADDRESS
 ```
 
-*membuat validator
+* membuat validator
 ```bash
 bonus-blockd tx staking create-validator \
   --amount 100000ubonus \
