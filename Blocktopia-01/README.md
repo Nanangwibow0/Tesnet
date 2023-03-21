@@ -1,10 +1,10 @@
+#                            BLOCKTOPIA-01 Tesnet
+
 # Official
 
 * [twitter](https://twitter.com/bonus_block)
 * [Telegram](https://t.me/bonusblock)
 * [EXPLORE](https://explorer.alfonova.app/bonusblock)
-
-# Blocktopia-01 Tesnet
 
 * Instalasi Otomatis
 ```bash
