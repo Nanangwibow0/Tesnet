@@ -88,8 +88,8 @@ source $HOME/.bash_profile
 
 # Membuat validator
 
--daftar : [https://app.bonusblock.io](https://app.bonusblock.io?ref=DBXu4w7b)
--faucet : [https://faucet.bonusblock.io](https://faucet.bonusblock.io/)
+*daftar : [https://app.bonusblock.io](https://app.bonusblock.io?ref=DBXu4w7b)
+*faucet : [https://faucet.bonusblock.io](https://faucet.bonusblock.io/)
 
 *cek balance
 ```bash
